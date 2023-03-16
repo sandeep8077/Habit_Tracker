@@ -92,7 +92,11 @@ Habit_traker
 Clone the latest Repository
 
 ```bash
+<<<<<<< HEAD
   git remote add origin https://github.com/sandeep8077/Habit_Tracker.git
+=======
+   git clone https://github.com/sandeep8077/Habit_Tracker.git
+>>>>>>> b28dde2a69076742d80340dade288ac150e7c86b
   
 ```
 into the my project folder
