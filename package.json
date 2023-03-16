@@ -1,0 +1,28 @@
+{
+    "name": "habit_traker",
+    "version": "1.0.0",
+    "description": "Made habit traker app",
+    "main": "myself",
+    "scripts": {
+        "start": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Sandeep",
+    "license": "ISC",
+    "dependencies": {
+        "-": "^0.0.1",
+        "bcrypt": "^5.1.0",
+        "connect": "^3.7.0",
+        "connect-flash": "^0.1.1",
+        "ejs": "^3.1.8",
+        "express": "^4.18.2",
+        "express-ejs-layouts": "^2.5.1",
+        "express-session": "^1.17.3",
+        "flash": "^1.1.0",
+        "jsonwebtoken": "^9.0.0",
+        "mongoose": "^6.10.0",
+        "nodemon": "^2.0.20",
+        "passport": "^0.6.0",
+        "passport-local": "^1.0.0"
+    }
+}

@@ -1,0 +1,161 @@
+<link rel="stylesheet" href="../assets/css/dashboard.css" />
+
+<div class="container-fluid">
+    <nav class="navbar navbar-expand navbar-light bg-light mx-0">
+        <h2 class="nav-link mr-auto">Habit Traker</h2>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <h4 class="text-muted float-right">
+                    <%if(locals.user){%>
+                        <%= user.name %>
+                            <%}%>
+                </h4>
+            </li>
+        </ul>
+
+        <a class="nav-link btn btn-success ml-5" href="/user/logout">Logout</a>
+    </nav>
+</div>
+<div class="container">
+    <div class="row mb-5">
+        <div class="col"></div>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center mb-4">Start with a new habbits Today</h2>
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-6 text-center">
+                <form action="/deshboard/user-view">
+                    <div class="btn-group">
+                        <%if(user.view==="daily"){%>
+                            <button type="submit" class="btn btn-success" disabled>
+              Daily
+            </button>
+                            <button type="submit" class="btn btn-danger active">Weekly</button>
+                            <%} else{%>
+                                <button type="submit" class="btn btn-success active">Daily</button>
+                                <button type="submit" class="btn btn-danger" disabled>
+              Weekly
+            </button>
+                                <%} %>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <form action="/deshboard/add-habit" class="form-group" method="post">
+                    <div class="input-group">
+                        <input type="text" name="content" class="form-control" placeholder="Enter habbit" required />
+                        <div class="input-group-append">
+                            <input type="submit" class="btn btn-success" value="Add" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-center my-4">
+            <div class="col-md-6 text-center">
+                <p id="done" class="d-inline ml-3 lead">Done</p>
+                <p id="not-done" class="d-inline ml-3 lead">not-done</p>
+                <p id="unmarked" class="d-inline ml-3 lead">unmarked</p>
+            </div>
+        </div>
+
+        <%if(habbits&& user.view==="daily"){%>
+            <% habbits.forEach(habit=>{%>
+                <%let
+    tzoffset= (new Date()).getTimezoneOffset() * 60000 %>
+                    <%found=false%>
+                        <%status=''%>
+                            <%var today= (new Date(Date.now() -
+    tzoffset)).toISOString().slice(0, 10)%>
+                                <% habit.dates.find(function (item,
+    index) {%>
+                                    <% if(item.date === today) {%>
+                                        <%found= true%>
+                                            <% status=
+    item.complete%>
+                                                <%} %>
+                                                    <%})%>
+                                                        <div class="row justify-content-center mb-3">
+                                                            <div class="col-md-6 custom-color p-2 rounded">
+                                                                <div class="daily d-flex justify-content-between">
+                                                                    <a href="status-update/?id=<%=
+                                                habit._id %>&date=<%= today %>">
+                                                                        <% if( status ==='yes'){%>
+                                                                            <i class="fa-solid fa-circle-check text-success" style="font-size: 2rem"></i>
+                                                                            <%} else if(found && status==='no'){%>
+                                                                                <i class="fa-solid fa-circle-xmark text-danger" style="font-size: 2rem"></i>
+                                                                                <%} else {%>
+                                                                                    <i class="fa-solid fa-circle-minus text-warning" style="font-size: 2rem"></i>
+
+                                                                                    <%} %>
+                                                                    </a>
+                                                                    <h5 class="fw-bolder">
+                                                                        <%= habit.content %>
+                                                                    </h5>
+
+                                                                    <div class="fav-del">
+                                                                        <a class="delete-icon" href="/deshboard/remove/?id=<%=
+                                                              habit._id %>">
+                                                                            <i class="fa-regular fa-trash-can size "></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <%} )%>
+                                                            <%} else{%>
+                                                                <% habbits.forEach(habit=>{%>
+                                                                    <div class="row justify-content-center dark my-3 py-3 rounded-lg" style="background-color: orangered">
+                                                                        <div class="col habit">
+                                                                            <h5 class="text-white">
+                                                                                <%= habit.content %>
+                                                                            </h5>
+
+                                                                            <a class="delete-icon" href="/deshboard/remove/?id=<%=
+                                                                  habit._id %>">
+                                                                                <i class="fa-regular fa-trash-can size"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                        <% days.forEach(day=> {%>
+                                                                            <%let found= false %>
+                                                                                <% status= ''%>
+                                                                                    <%
+      habit.dates.find(function (item, index) {%>
+                                                                                        <% if(item.date === day.date)
+      {%>
+                                                                                            <%found= true%>
+                                                                                                <%status= item.complete%>
+                                                                                                    <%} %>
+                                                                                                        <%}) %>
+                                                                                                            <div class="col habit-show text-center bg-dark mr-2">
+                                                                                                                <div class="mb-3 bg-danger">
+                                                                                                                    <h5 class="text-light">
+                                                                                                                        <%= day.day %>
+                                                                                                                            <%= day.date.slice(-2)%>
+                                                                                                                    </h5>
+                                                                                                                </div>
+                                                                                                                <a href="status-update/?id=<%=
+                                                                                        habit._id
+                                                                                        %>&date=<%=
+                                                                                          day.date
+                                                                                          %>">
+                                                                                                                    <% if( status ==='yes'){%>
+                                                                                                                        <i class="fa-solid fa-circle-check text-success" style="font-size: 2rem"></i>
+                                                                                                                        <%} else if(found && status==='no'){%>
+                                                                                                                            <i class="fa-solid fa-circle-xmark text-danger" style="font-size: 2rem"></i>
+                                                                                                                            <%} else {%>
+                                                                                                                                <i class="fa-solid fa-circle-minus text-warning" style="font-size: 2rem"></i>
+                                                                                                                                <%} %>
+                                                                                                                </a>
+                                                                                                            </div>
+                                                                                                            <%}) %>
+                                                                    </div>
+                                                                    <%})%>
+                                                                        <%} %>
+    </div>
+</div>
+<%- include("./partials/masseges"); %>

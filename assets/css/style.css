@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    background-color: skyblue;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'PT Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Sofia Sans Semi Condensed', sans-serif;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.delete-icon {
+    color: black;
+}
+
+.fa-regular .fa-trash-can {
+    color: black;
+}
+
+
+/* .col-md-6 {
+    border: 2px solid black;
+} */
+
+.col-md-6 img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+h4.text-dark::before {
+    content: "\f234";
+    padding-right: 5px;
+    font-family: FontAwesome;
+}
+
+#login::before {
+    content: "\f2f6";
+    padding-right: 5px;
+    font-family: FontAwesome;
+}

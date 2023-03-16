@@ -1,0 +1,43 @@
+.right-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+#done::before {
+    content: "\f058";
+    font-family: FontAwesome;
+    padding-right: 5px;
+    color: green;
+}
+
+#not-done::before {
+    content: "\f057";
+    font-family: FontAwesome;
+    padding-right: 5px;
+    color: red;
+}
+
+#unmarked::before {
+    content: "\f056";
+    font-family: FontAwesome;
+    padding-right: 5px;
+    color: #e1ff00e8;
+}
+
+.habit-show {
+    width: 100px;
+    height: 100px;
+    background: white;
+}
+
+.dark {
+    background-color: darkgrey;
+}
+
+.size {
+    font-size: 1.5rem;
+}
+
+.custom-color {
+    background-color: #F8F9FA;
+}

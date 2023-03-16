@@ -1,0 +1,35 @@
+<div class="container ">
+    <div class="row py-5 justify-content-center ">
+        <div class="col-md-6 text-center bg-warning rounded-lg">
+            <h1 class="py-2">Habit Tracker</h1>
+            <img src="../assets/images/logo.png" alt="" class="img-fluid mb-3">
+            <h4 class="text-dark">Register</h4>
+            <form action="/user/create" class="form-group" method="post">
+                <label for="">name</label>
+                <input type="text" name="name" class="form-control" placeholder="Enter name">
+                <label for="">email</label>
+                <input type="email" name="email" class="form-control mb-3" placeholder="Enter email">
+                <label for="">Password</label>
+                <input type="password" name="password" class="form-control mb-3" placeholder="Enter password">
+                <label for="">Confirm-password</label>
+                <input type="password" name="confirm_password" class="form-control mb-3" placeholder="Confirm-password">
+
+                <input type="submit" class="btn btn-success btn-block " value="register">
+                <p class="mb-5">Returning user ? <a href="/user/login">Login</a></p>
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+<%- include("./partials/masseges"); %>
