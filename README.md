@@ -92,7 +92,7 @@ Habit_traker
 Clone the latest Repository
 
 ```bash
-  npm install my-project
+   git clone https://github.com/sandeep8077/Habit_Tracker.git
   
 ```
 into the my project folder
