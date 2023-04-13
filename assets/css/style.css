@@ -15,6 +15,11 @@ code {
     color: black;
 }
 
+.delete-icon .fa-regular {
+    font-size: 1.5rem;
+    color: #008000;
+}
+
 .fa-regular .fa-trash-can {
     color: black;
 }
@@ -40,4 +45,15 @@ h4.text-dark::before {
     content: "\f2f6";
     padding-right: 5px;
     font-family: FontAwesome;
+}
+
+.habit {
+    background-color: orange;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 8px;
+    margin-right: 10px;
+    font-family: 700s;
 }

@@ -1,5 +1,6 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+const env = require('./config/environment');
 // ---mongodb connection----//
 const mongoose = require('./config/mongoose');
 
@@ -14,7 +15,7 @@ const customMware = require('./config/middlewear');
 
 // -----EJS----//
 app.use(expressLayouts);
-app.use('/assets', express.static('./assets'));
+app.use(express.static(env.asset_path));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 app.set("layout extractStyles", true);
@@ -26,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 // sessions
 app.use(session({
     name: "habit_tracker",
-    secret: "balasomthing",
+    secret: env.secret_Key,
     saveUninitialized: false,
     resave: false,
     cookie: {

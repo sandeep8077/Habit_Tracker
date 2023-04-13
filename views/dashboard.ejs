@@ -109,7 +109,7 @@
                                                         <%} )%>
                                                             <%} else{%>
                                                                 <% habbits.forEach(habit=>{%>
-                                                                    <div class="row justify-content-center dark my-3 py-3 rounded-lg" style="background-color: orangered">
+                                                                    <div class="row justify-content-center dark my-3 px-2 py-3 rounded-lg" style="background-color: orangered">
                                                                         <div class="col habit">
                                                                             <h5 class="text-white">
                                                                                 <%= habit.content %>
@@ -131,7 +131,7 @@
                                                                                                 <%status= item.complete%>
                                                                                                     <%} %>
                                                                                                         <%}) %>
-                                                                                                            <div class="col habit-show text-center bg-dark mr-2">
+                                                                                                            <div class="col habit-show text-center bg-dark rounded p-2 mr-2">
                                                                                                                 <div class="mb-3 bg-danger">
                                                                                                                     <h5 class="text-light">
                                                                                                                         <%= day.day %>
@@ -144,11 +144,11 @@
                                                                                           day.date
                                                                                           %>">
                                                                                                                     <% if( status ==='yes'){%>
-                                                                                                                        <i class="fa-solid fa-circle-check text-success" style="font-size: 2rem"></i>
+                                                                                                                        <i class="fa-solid fa-circle-check text-success" style="font-size: 1.5rem"></i>
                                                                                                                         <%} else if(found && status==='no'){%>
-                                                                                                                            <i class="fa-solid fa-circle-xmark text-danger" style="font-size: 2rem"></i>
+                                                                                                                            <i class="fa-solid fa-circle-xmark text-danger" style="font-size: 1.5rem"></i>
                                                                                                                             <%} else {%>
-                                                                                                                                <i class="fa-solid fa-circle-minus text-warning" style="font-size: 2rem"></i>
+                                                                                                                                <i class="fa-solid fa-circle-minus text-warning" style="font-size: 1.5rem"></i>
                                                                                                                                 <%} %>
                                                                                                                 </a>
                                                                                                             </div>
