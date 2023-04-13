@@ -15,7 +15,7 @@ const customMware = require('./config/middlewear');
 
 // -----EJS----//
 app.use(expressLayouts);
-app.use(express.static(process.env.assetPath));
+app.use(express.static('./assets'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 app.set("layout extractStyles", true);
@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 // sessions
 app.use(session({
     name: "habit_tracker",
-    secret: process.env.secret_Key,
+    secret: 'balasomthing',
     saveUninitialized: false,
     resave: false,
     cookie: {
