@@ -5,7 +5,7 @@ const env = require('./config/environment');
 const mongoose = require('./config/mongoose');
 
 const app = express();
-const port = 9997;
+const port = process.env.PORT || 9997;
 const session = require('express-session');
 const passport = require('passport');
 const LocalStretegy = require('./config/passport-local-stretegy');
